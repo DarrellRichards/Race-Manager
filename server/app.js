@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const app = express();
 // CORS Issues
 // allow cross origin requests
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'POST, PUT,OPTIONS, DELETE, GET');
-  /* istanbul ignore if */
   if (req.method === 'OPTIONS') {
     const headers = {};
     headers['Access-Control-Allow-Origin'] = '*';
