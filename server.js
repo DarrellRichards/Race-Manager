@@ -1,6 +1,6 @@
 require('dotenv').config();
 const http = require('http');
-const debug = require('debug')('server');
+const debug = require('debug')('racemanager:server');
 const config = require('./config/config');
 const app = require('./server/app');
 
@@ -30,8 +30,8 @@ const onError = (error) => {
 const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-  console.log(`Web Server listening on ${bind}`);
-}
+  debug(`Web Server listening on ${bind}`);
+};
 
 server.listen(port);
 server.on('error', onError);
