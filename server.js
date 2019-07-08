@@ -1,8 +1,10 @@
 require('dotenv').config();
 const http = require('http');
+const debug = require('debug')('server');
 const config = require('./config/config');
 const app = require('./server/app');
-const { port } = config
+
+const { port } = config;
 
 app.set('port', port);
 const server = http.createServer(app);
@@ -15,14 +17,16 @@ const onError = (error) => {
     : `port ${port}`;
   switch (error.code) {
     case 'EACCES':
-      console.error(`${bind} require elevated privileges.`);
+      debug(`${bind} require elevated privileges.`);
       process.exit(1);
+      break;
     case 'EADDRINUSE':
-      console.error(`${bind} is already in use.`);
+      debug(`${bind} is already in use.`);
       process.exit(1);
+      break;
     default: throw error;
   }
-}
+};
 const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
