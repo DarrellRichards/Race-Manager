@@ -5,5 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:DarrellRichards/Race-Manager.git",
   "author": "Darrell Richards <hello@darrellrichards.com>",
-  "license": "GNU"
+  "license": "GNU",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1"
+  }
 }
