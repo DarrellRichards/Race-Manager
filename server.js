@@ -1,7 +1,8 @@
 require('dotenv').config();
 const http = require('http');
+const config = require('./config/config');
 const app = require('./server/app');
-const port = process.env.PORT
+const { port } = config
 
 app.set('port', port);
 // app.set('env', config.env);
