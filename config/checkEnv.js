@@ -5,4 +5,4 @@ const fetchEnv = (variable) => {
   return process.env[variable];
 };
 
-module.exports = fetchEnv();
+module.exports = fetchEnv;
