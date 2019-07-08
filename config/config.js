@@ -1,9 +1,9 @@
 require('dotenv').config();
-const checkEnv = require('./checkEnv');
+const fetchEnv = require('./checkEnv');
 
 
 const config = {
-  port: checkEnv.fetchEnv('PORT'),
+  port: fetchEnv('PORT'),
 };
-  
+
 module.exports = config;
