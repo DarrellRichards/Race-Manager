@@ -1,7 +1,7 @@
 require('dotenv').config();
 const http = require('http');
 const app = require('./server/app');
-const port = 7430
+const port = process.env.PORT
 
 app.set('port', port);
 // app.set('env', config.env);
@@ -26,7 +26,7 @@ const onError = (error) => {
 const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-  console.log(`web server listening on ${bind}`);
+  console.log(`Web Server listening on ${bind}`);
 }
 
 server.listen(port);
