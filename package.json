@@ -1,0 +1,9 @@
+{
+  "name": "Race-Manager",
+  "version": "0.0.1",
+  "description": "Race Manager is a open source project that is built to add support to the iRacing (https://iracing.com) points systems.",
+  "main": "index.js",
+  "repository": "git@github.com:DarrellRichards/Race-Manager.git",
+  "author": "Darrell Richards <hello@darrellrichards.com>",
+  "license": "GNU"
+}
