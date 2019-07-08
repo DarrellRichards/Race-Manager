@@ -1,10 +1,10 @@
 require('dotenv').config();
 const http = require('http');
-const app = require('../server/app');
+const app = require('./server/app');
+const port = 7430
 
-const { port } = config;
 app.set('port', port);
-app.set('env', config.env);
+// app.set('env', config.env);
 const server = http.createServer(app);
 
 /* istanbul ignore next */
