@@ -5,7 +5,6 @@ const app = require('./server/app');
 const { port } = config
 
 app.set('port', port);
-// app.set('env', config.env);
 const server = http.createServer(app);
 
 /* istanbul ignore next */
