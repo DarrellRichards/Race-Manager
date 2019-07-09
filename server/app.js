@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const routes = require('./routes');
+
 const app = express();
 // CORS Issues
 // allow cross origin requests
@@ -28,5 +30,8 @@ app.use((req, res, next) => {
 // Body Parser Settings
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/', routes);
 
 module.exports = app;
