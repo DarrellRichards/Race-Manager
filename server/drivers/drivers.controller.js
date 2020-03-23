@@ -19,6 +19,13 @@ class DriverController {
       .json({ status: 200, token });
   }
 
+  async registerDriver(req, res) {
+    req.body.password = await bcrypt.hash(req.body.password, 8);
+    const createdDriver = await this.model.create(req.body);
+    return res.status(201)
+      .json({ status: 201, createdDriver });
+  }
+
   async getDriver(req, res) {
     const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, process.env.JWT_KEY);

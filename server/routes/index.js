@@ -1,7 +1,7 @@
 // eslint-disable-next-line prefer-destructuring
 const { Router } = require('express');
 const DriverRoutes = require('../drivers');
-const AuthRoutes = require('../auth');
+// const AuthRoutes = require('../auth');
 const ResultRoutes = require('../results');
 const SeriesRoutes = require('../series');
 const ScheduleRoutes = require('../schedules');
@@ -24,6 +24,6 @@ router.use('/schedule', ScheduleRoutes);
 router.use('/seasons', SeasonRoutes);
 router.use('/leagues', LeagueRoutes);
 // router.use('/points', PointsRoutes);
-router.use('/', AuthRoutes);
+// router.use('/', AuthRoutes);
 
 module.exports = router;

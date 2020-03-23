@@ -15,5 +15,6 @@ router.route('/')
 router.get('/me', async (req, res) => DriverController.getDriver(req, res));
 
 router.post('/login', async (req, res) => DriverController.loginDriver(req, res));
+router.post('/register', async (req, res) => DriverController.registerDriver(req, res));
 
 module.exports = router;

@@ -3,7 +3,14 @@ const mongoose = require('../../config/db');
 const seriesSchema = mongoose.Schema({
   id: mongoose.Schema.Types.ObjectId,
   name: String,
-  season: String,
+  season: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Seasons',
+  },
+  league: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Leagues',
+  },
   cars: [],
   provisionals: {
     type: String,

@@ -1,5 +1,6 @@
 const LeagueModel = require('./league.model');
 const DriverModel = require('../drivers/drivers.modal');
+const decodeJWT = require('../lib/decodeJWT');
 
 class LeagueController {
   constructor() {
@@ -8,7 +9,9 @@ class LeagueController {
   }
 
   async createLeague(req, res) {
-    const { driver, name } = req.body;
+    const { name } = req.body;
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const driver = await decodeJWT(token);
     try {
       const league = await this.model.create({ name });
       await this.driver.findByIdAndUpdate(driver, { $push: { leagues: { league, admin: true } } },

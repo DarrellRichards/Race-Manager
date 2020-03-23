@@ -6,7 +6,7 @@
   "repository": "git@github.com:DarrellRichards/Race-Manager.git",
   "author": "Darrell Richards <hello@darrellrichards.com>",
   "scripts": {
-    "start:debug": "DEBUG=racemanager:* nodemon server.js",
+    "start:debug": "nodemon server.js",
     "lint": "eslint ."
   },
   "dependencies": {
