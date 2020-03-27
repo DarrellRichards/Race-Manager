@@ -58,7 +58,7 @@ class LeagueViewDashboard extends React.Component {
                             <th scope="col">Series Name</th>
                             <th scope="col">Season</th>
                             <th scope="col">Cars</th>
-                            <th scope="col">Actions</th> 
+                            <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,10 +66,6 @@ class LeagueViewDashboard extends React.Component {
                         </tbody>
                         </table>
                     </div>
-                </div>
-                <div className="row">
-                    <h2>Past Events</h2>
-                    {/* Display Old Events */}
                 </div>
             </div>
         )
