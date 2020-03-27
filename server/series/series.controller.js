@@ -29,7 +29,7 @@ class SeriesController {
       match: {
         league: league,
       },
-    });
+    }).populate('season');
     // console.log(series)
     const filterSeries = series.filter(schedule => schedule.league);
     console.log(filterSeries)

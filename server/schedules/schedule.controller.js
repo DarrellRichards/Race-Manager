@@ -22,12 +22,17 @@ class ScheduleController {
         match: {
           season: req.query.season,
         },
-      });
+      }).populate('results');
       const schedules = seriesSchedule.filter(schedule => schedule.series);
       return res.status(200).json({ schedules });
     }
     const schedules = await this.model.find().populate('series');
     return res.status(200).json({ schedules });
+  }
+
+  async fetchScheduleById(req, res) {
+    const schedule = await this.model.findById({ _id: req.params.id });
+    return res.status(200).json({ event: schedule });
   }
 
   async deleteSchedule(req, res) {

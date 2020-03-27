@@ -6,19 +6,21 @@ const pointsSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Series',
   },
+  season: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Season',
+  },
   drivers: [{
-    postion: Number,
-    change: Number,
     name: String,
     starts: Number,
+    prov: Number,
+    races_counted: Number,
     wins: Number,
     top_five: Number,
     top_ten: Number,
     laps: Number,
-    points: {
-      type: Number,
-      default: 0,
-    },
+    laps_lead: Number,
+    inc: Number,
     bonus_points: {
       type: Number,
       default: 0,

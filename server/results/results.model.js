@@ -12,6 +12,10 @@ const resultsSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Schedule',
   },
+  season: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Seasons',
+  },
   drivers: [{
     finish_pos: Number,
     start_pos: Number,

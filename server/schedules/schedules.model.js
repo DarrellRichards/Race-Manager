@@ -6,10 +6,15 @@ const scheduleSchema = mongoose.Schema({
   img: String,
   track: String,
   date: Date,
+  race_length: String,
   series: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Series',
   },
+  results: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Results',
+  }
 });
 
 module.exports = mongoose.model('Schedule', scheduleSchema);

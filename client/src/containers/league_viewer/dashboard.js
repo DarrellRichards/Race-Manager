@@ -8,7 +8,7 @@ class LeagueViewDashboard extends React.Component {
         super(props);
         this.state = {
             league: null,
-            seriesCount: 0,
+            seriesCount: [],
             scheduleCount: 0,
         }
     }
@@ -34,26 +34,37 @@ class LeagueViewDashboard extends React.Component {
         const json = await a.json();
         console.log(json);
         if (json.message) return this.setState({ error: json.message });
-        return this.setState({ seriesCount: json.filterSeries.length })
+        return this.setState({ seriesCount: json.filterSeries })
     }
 
     render() {
         const {league, seriesCount, scheduleCount} = this.state;
+        const series = seriesCount.map(series => {
+            return (<tr key={series._id}>
+                <th scope="row">{series.name}</th>
+                <td><Link to={`/season/${series.season._id}`}>{series.season.name}</Link></td>
+                <td>{series.cars}</td>
+                <td><Link to=""><i className="far fa-edit fa-1x"></i></Link> | <Link to="#"><i className="far fa-trash-alt fa-1x"></i></Link></td>
+            </tr>)
+        });
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-3 leagueViewArea">
-                        <p className="headline"> Series Count <span className="float-right"><Link to={`/create/series/${league}`}><i className="fas fa-plus"></i> Add</Link></span> </p>
-                        <p className="count">{seriesCount}</p>
-                    </div>
-                    <div className="col-3 leagueViewArea">
-                        <p className="headline"> Schedule Count <span className="float-right"><a href="#"><i className="fas fa-plus"></i> Add</a></span> </p>
-                        <p className="count">{scheduleCount}</p>
-                    </div>
-                    <div className="col-3 leagueViewArea">
-                        <p className="headline upload"> Upload Results </p>
-                        
-                        <p className="text-center"><a href="#"><i className="fas fa-plus fa-6x"></i></a></p>
+                    <div className="col-12">
+                    <h1 className="createHeader">Series</h1>
+                    <table className="table table-striped">
+                        <thead className="thead-dark">
+                            <tr>
+                            <th scope="col">Series Name</th>
+                            <th scope="col">Season</th>
+                            <th scope="col">Cars</th>
+                            <th scope="col">Actions</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {series}
+                        </tbody>
+                        </table>
                     </div>
                 </div>
                 <div className="row">
